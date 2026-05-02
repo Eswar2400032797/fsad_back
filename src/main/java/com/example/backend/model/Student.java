@@ -1,6 +1,11 @@
 package com.example.backend.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Student {
+
     private String id;
     private String name;
     private String email;
@@ -13,20 +18,31 @@ public class Student {
     private boolean isActive;
     private double attendance;
     private double overallGPA;
-    private java.util.List<java.util.Map<String, Object>> performance;
-    private java.util.List<String> strengths;
-    private java.util.List<String> weaknesses;
-    private java.util.List<java.util.Map<String, Object>> trend;
 
-    public Student() {}
+    private List<Map<String, Object>> performance;
+    private List<String> strengths;
+    private List<String> weaknesses;
+    private List<Map<String, Object>> trend;
 
+    // ✅ IMPORTANT: Safe constructor
+    public Student() {
+        this.performance = new ArrayList<>();
+        this.strengths = new ArrayList<>();
+        this.weaknesses = new ArrayList<>();
+        this.trend = new ArrayList<>();
+    }
+
+    // Optional parameterized constructor
     public Student(String id, String name, String email, double attendance, double overallGPA) {
+        this();
         this.id = id;
         this.name = name;
         this.email = email;
         this.attendance = attendance;
         this.overallGPA = overallGPA;
     }
+
+    // ===== GETTERS & SETTERS =====
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -64,15 +80,15 @@ public class Student {
     public double getOverallGPA() { return overallGPA; }
     public void setOverallGPA(double overallGPA) { this.overallGPA = overallGPA; }
 
-    public java.util.List<java.util.Map<String, Object>> getPerformance() { return performance; }
-    public void setPerformance(java.util.List<java.util.Map<String, Object>> performance) { this.performance = performance; }
+    public List<Map<String, Object>> getPerformance() { return performance; }
+    public void setPerformance(List<Map<String, Object>> performance) { this.performance = performance; }
 
-    public java.util.List<String> getStrengths() { return strengths; }
-    public void setStrengths(java.util.List<String> strengths) { this.strengths = strengths; }
+    public List<String> getStrengths() { return strengths; }
+    public void setStrengths(List<String> strengths) { this.strengths = strengths; }
 
-    public java.util.List<String> getWeaknesses() { return weaknesses; }
-    public void setWeaknesses(java.util.List<String> weaknesses) { this.weaknesses = weaknesses; }
+    public List<String> getWeaknesses() { return weaknesses; }
+    public void setWeaknesses(List<String> weaknesses) { this.weaknesses = weaknesses; }
 
-    public java.util.List<java.util.Map<String, Object>> getTrend() { return trend; }
-    public void setTrend(java.util.List<java.util.Map<String, Object>> trend) { this.trend = trend; }
+    public List<Map<String, Object>> getTrend() { return trend; }
+    public void setTrend(List<Map<String, Object>> trend) { this.trend = trend; }
 }
